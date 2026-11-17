@@ -2,10 +2,12 @@ cmake_minimum_required(VERSION 3.21)
 project(aisproject CXX)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin")
 
-include(FetchContent)
+find_package(Threads REQUIRED)
 
+include(FetchContent)
 set(THREEPP_BUILD_TESTS OFF)
 set(THREEPP_BUILD_EXAMPLES OFF)
 FetchContent_Declare(
@@ -16,5 +18,5 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(threepp)
 
-add_executable(threepp_demo src/main.cpp)
-target_link_libraries(threepp_demo PRIVATE threepp::threepp)
+add_executable(sim src/main.cpp)
+target_link_libraries(sim PRIVATE threepp::threepp Threads::Threads)
