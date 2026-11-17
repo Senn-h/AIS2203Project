@@ -1,0 +1,8 @@
+{
+  "name": "aisproject",
+  "version": "0.1.0",
+  "dependencies": [
+    "opencv"
+  ],
+  "builtin-baseline": "4b308f5ccd45aed57f2977257bca304dfef43c99"
+}

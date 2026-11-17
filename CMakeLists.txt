@@ -7,6 +7,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin")
 
 find_package(Threads REQUIRED)
 
+find_package(OpenCV REQUIRED)
+message(STATUS "OpenCV ${OpenCV_VERSION} found")
+
 include(FetchContent)
 set(THREEPP_BUILD_TESTS OFF)
 set(THREEPP_BUILD_EXAMPLES OFF)
@@ -18,5 +21,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(threepp)
 
-add_executable(sim src/main.cpp)
+add_executable(sim src/main.cpp
+        src/Mailbox.hpp)
 target_link_libraries(sim PRIVATE threepp::threepp Threads::Threads)
